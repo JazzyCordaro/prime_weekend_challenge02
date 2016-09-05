@@ -21,20 +21,16 @@ $(document).ready(function() {
 	$(".btn").click(function(){
 		console.log("button clicked");
 	$("#outputDiv").show();
-	$(".btn").hide();
 	});
 });
 
 
-
-
-var displayStudents=function(piStudents){
-  console.log('in displayStudents:',  piStudents);
+var displayStudents=function(studentInformation){
+  console.log('in displayStudents:',  studentInformation);
   var outputDiv=$('#outputDiv');
   outputDiv.empty();
-  for (var i = 0; i < piStudents.length; i++) {
-  outputDiv.append('<p>' + piStudents[i].first_name + ' ' + piStudents[i].last_name + ' ' + piStudents[i].info + '</p>');
-
+  for (var i = 0; i < studentInformation.length; i++) {
+  outputDiv.append('<p>' + studentInformation[i].first_name + ' ' + studentInformation[i].last_name + ' ' + studentInformation[i].info + '</p>');
   }
 }
 
