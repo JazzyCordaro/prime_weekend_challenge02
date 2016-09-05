@@ -12,13 +12,11 @@ $(document).ready(function(){
     success: function(data){
     console.log('plz be successful:', data.students);
   displayStudents(data.students);
-    }
+  }
   });
-});
 
-$(document).ready(function() {
 	$("#outputDiv").hide();
-	$(".btn").click(function(){
+	$("#buttons").click(function(){
 		console.log("button clicked");
 	$("#outputDiv").show();
 	});
@@ -28,11 +26,29 @@ $(document).ready(function() {
 var displayStudents=function(studentInformation){
   console.log('in displayStudents:',  studentInformation);
   var outputDiv=$('#outputDiv');
-  outputDiv.empty();
-  for (var i = 0; i < studentInformation.length; i++) {
-  outputDiv.append('<p>' + studentInformation[i].first_name + ' ' + studentInformation[i].last_name + ' ' + studentInformation[i].info + '</p>');
+ for(var i = 0; i < studentInformation.length; i++) {
+ outputDiv.html('<p>' + studentInformation[i].first_name +
+ // ' ' + studentInformation[i].last_name + ' ' + studentInformation[i].info +
+  '</p>');
+console.log('displayStudents');
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
