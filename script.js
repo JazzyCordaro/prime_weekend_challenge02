@@ -1,43 +1,129 @@
-console.log('script.js source');
+console.log('work work work work work ');
 
-var studentInfo=[];
+var studentInformation=[];
 
-$( document ).on( 'click', '#addStudent', function(){
-  console.log( 'addStudent on click' );
+var jsonURl = 'http://devjana.net/pi/pi_students.json';
 
-studentInfo.push( addStudent );
-showStudent();
+$(document).ready(function(){
+  console.log('plz');
+  $.ajax({
+    url: jsonURl,
+    dataType: 'JSON',
+    success: function(data){
+    console.log('plz be successful:', data.students);
+  displayStudents(data.students);
+    }
+  });
 });
 
-$.ajax({
-  url: 'http://devjana.net/pi/pi_students.json',
-  dataType: 'json',
-  success: function( data ){
-     console.log( 'YAS!:', data.students );
-     displayStudents(data.students);
-       }
-  });
+$(document).ready(function() {
+	$("#outputDiv").hide();
+	$(".btn").click(function(){
+		console.log("button clicked");
+	$("#outputDiv").show();
+	$(".btn").hide();
+	});
+});
 
-  var displayStudents = function (studentInfo){
-    console.log('in displayStudents:', studentInfo);
-    var outputDiv=$('#outputDiv');
-    outputDiv.empty();
-    for (var i = 0; i < studentInfo.length; i++) {
-      outputDiv.append('<p>' + studentInfo[i].first_name + ' ' + studentInfo[i].last_name + ' ' + studentInfo[i].info + '</p>');
 
- // $('#outputDiv').empty('students');
-    }
-  };
 
-  $(document).ready(function() {
-  	$("#outputDiv").hide();
-  	$(".btn").click(function(){
-  		console.log("button clicked");
-  	$("#outputDiv").show();
-    $( "#outputDiv" ).data();
 
-  	});
-  });
+var displayStudents=function(piStudents){
+  console.log('in displayStudents:',  piStudents);
+  var outputDiv=$('#outputDiv');
+  outputDiv.empty();
+  for (var i = 0; i < piStudents.length; i++) {
+  outputDiv.append('<p>' + piStudents[i].first_name + ' ' + piStudents[i].last_name + ' ' + piStudents[i].info + '</p>');
+
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// console.log('script.js source');
+//
+//
+// window.onload = function() {
+//     // all of your code goes in here
+//     // it runs after the DOM is built
+//
+// var studentInfo=[];
+//
+// $( document ).on( 'click', '#addStudent', function(){
+//   console.log( 'addStudent on click' );
+//
+// studentInfo.push( addStudent );
+// showStudent();
+// });
+//
+//
+// $(document).ready(function() {
+//   $("#outputDiv").hide();
+//   $(".btn").click(function(){
+//     console.log("button clicked");
+//   $("#outputDiv").show();
+//   $( "#outputDiv" ).data();
+//
+//   $.ajax({
+//     url: 'http://devjana.net/pi/pi_students.json',
+//     dataType: 'json',
+//     success: function( data ){
+//        console.log( 'YAS!:', data.students );
+//     displayStudents(data.students);
+//       }
+//     });
+//   });
+// });
+//
+//
+//   var displayStudents = function (studentInfo){
+//     console.log('in displayStudents:', studentInfo);
+//     var outputDiv= $('#outputDiv');
+//     outputDiv.empty();
+//     for (var i = 0; i < studentInfo.length; i++) {
+//       outputDiv.append('<p>' + studentInfo[i].first_name + ' ' + studentInfo[i].last_name + ' ' + studentInfo[i].info + '</p>');
+//
+//   document.getElementById("outputDiv").innerHTML;
+//  // $('#outputDiv').empty('students');
+//     }
+//   };
+// }
+
+
+
+  // $(document).ready(function() {
+  // 	$("#outputDiv").hide();
+  // 	$(".btn").click(function(){
+  // 		console.log("button clicked");
+  // 	$("#outputDiv").show();
+  //   $( "#outputDiv" ).data();
+  //
+  // 	});
+  // });
 
 
 
